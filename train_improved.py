@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 import tensorflow as tf
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import (
@@ -49,6 +50,35 @@ history = model.fit(
     epochs=10,
     batch_size=32
 )
+
+# Accuracy Graph
+
+plt.figure(figsize=(8,5))
+
+plt.plot(history.history['accuracy'], label='Train Accuracy')
+plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
+
+plt.title('Improved CNN Accuracy')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+plt.legend()
+
+plt.savefig('accuracy_graph.png')
+
+
+# Loss Graph
+
+plt.figure(figsize=(8,5))
+
+plt.plot(history.history['loss'], label='Train Loss')
+plt.plot(history.history['val_loss'], label='Validation Loss')
+
+plt.title('Improved CNN Loss')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.legend()
+
+plt.savefig('loss_graph.png')
 
 model.save("improved_model.keras")
 

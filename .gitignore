@@ -5,3 +5,10 @@ data/
 *.keras
 
 __pycache__/
+
+output.png
+processed_input.png
+
+input.png
+input2.png
+input3.png
